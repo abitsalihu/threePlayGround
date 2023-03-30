@@ -92,6 +92,10 @@ const holderRoughnessTexture = textureLoader.load(
   "/textures/holder/holderRoughness.jpg"
 );
 
+const holderDisplacementTexture = textureLoader.load(
+  "/textures/holder/holderDisplacement.jpg"
+);
+
 const metalColorTexture = textureLoader.load("/textures/metal/metalColor.jpg");
 const metalNormalTexture = textureLoader.load(
   "/textures/metal/metalNormal.jpg"
@@ -114,6 +118,12 @@ const couchOpacityTexture = textureLoader.load(
   "/textures/couch/couchOpacity.jpg"
 );
 
+const woodColorTexture = textureLoader.load("/textures/box/woodColor.jpg");
+const woodNormalTexture = textureLoader.load("/textures/box/woodNormal.jpg");
+const woodRoughnessTexture = textureLoader.load(
+  "/textures/box/woodRoughness.jpg"
+);
+
 wallColorTexture.repeat.set(2.5, 2.5);
 wallNormalTexture.repeat.set(2.5, 2.5);
 wallRoughnessTexture.repeat.set(2.5, 2.5);
@@ -133,6 +143,10 @@ holderRoughnessTexture.repeat.set(2, 2);
 couchColorTexture.repeat.set(0.9, 0.9);
 couchNormalTexture.repeat.set(0.9, 0.9);
 couchRoughnessTexture.repeat.set(0.9, 0.9);
+
+woodColorTexture.repeat.set(0.4, 0.4);
+woodNormalTexture.repeat.set(0.9, 0.9);
+woodRoughnessTexture.repeat.set(0.9, 0.9);
 
 wrapTextures(
   wallColorTexture,
@@ -163,6 +177,8 @@ wrapTextures(
   couchNormalTexture,
   couchRoughnessTexture
 );
+
+wrapTextures(woodColorTexture, woodNormalTexture, woodRoughnessTexture);
 //? floor textures
 
 //? OBJECTS
@@ -174,7 +190,7 @@ const home = new THREE.Group();
 //? main homeFloor
 const sceneFloor = new THREE.Mesh(
   new THREE.BoxGeometry(4, 4, 0.05, 10, 10),
-  new THREE.MeshStandardMaterial({ color: "#3F72AF" })
+  new THREE.MeshStandardMaterial({ color: "#F9DEBA", wireframe: true })
 );
 
 sceneFloor.receiveShadow = true;
@@ -210,16 +226,27 @@ const rightWallMiddleBottom = new THREE.Mesh(rightWallMiddle, wallsMaterial);
 
 //? walls holder
 
+const wallHolderMaterial = new THREE.MeshStandardMaterial({
+  map: holderColorTexture,
+  roughnessMap: holderRoughnessTexture,
+  normalMap: holderNormalTexture,
+});
+
 const wallsHolder = new THREE.Mesh(
   new THREE.BoxGeometry(0.925, 0.025, 0.1),
-  new THREE.MeshStandardMaterial({
-    map: holderColorTexture,
-    roughnessMap: holderRoughnessTexture,
-    normalMap: holderNormalTexture,
-  })
+  wallHolderMaterial
 );
 
-wallsHolder.castShadow = true;
+const wallSmallHolder = new THREE.Mesh(
+  new THREE.BoxGeometry(0.275, 0.025, 0.1),
+  wallHolderMaterial
+);
+
+const wallSmallHolderSecond = new THREE.Mesh(
+  new THREE.BoxGeometry(0.275, 0.025, 0.1),
+  wallHolderMaterial
+);
+
 //? homeFloor
 
 const homeFloor = new THREE.Mesh(
@@ -264,6 +291,13 @@ wallsHolder.position.z = Math.PI / -3.3;
 wallsHolder.position.x = -0.065;
 wallsHolder.position.y = -0.414;
 
+wallSmallHolder.position.z = Math.PI / -3.3;
+wallSmallHolder.position.x = 0.75;
+wallSmallHolder.position.y = 0.15;
+
+wallSmallHolderSecond.position.z = Math.PI / -3.3;
+wallSmallHolderSecond.position.x = 0.65;
+wallSmallHolderSecond.position.y = -0.15;
 //? floors rotation
 homeFloor.rotation.x = Math.PI / 2;
 homeFloor.position.y = -0.95;
@@ -291,21 +325,23 @@ circleRug.receiveShadow = true;
 
 const drawerGroup = new THREE.Group();
 
-const drawerLegGeometry = new THREE.BoxGeometry(0.065, 0.07, 0.065);
 const draweLegMaterial = new THREE.MeshStandardMaterial({
   map: metalColorTexture,
   roughnessMap: metalRoughnessTexture,
   normalMap: metalNormalTexture,
   metalnessMap: metalMetalnessTexture,
 });
+const drawerBoxMaterial = new THREE.MeshStandardMaterial({
+  map: woodColorTexture,
+  roughnessMap: woodRoughnessTexture,
+  normalMap: woodNormalTexture,
+  color: "#F9DEBA",
+});
+const drawerLegGeometry = new THREE.BoxGeometry(0.065, 0.07, 0.065);
 
 const drawer = new THREE.Mesh(
   new THREE.BoxGeometry(0.325, 0.36, 0.4),
-  new THREE.MeshStandardMaterial({
-    map: holderColorTexture,
-    roughnessMap: holderRoughnessTexture,
-    normalMap: holderNormalTexture,
-  })
+  wallHolderMaterial
 );
 
 const drawerLegF = new THREE.Mesh(drawerLegGeometry, draweLegMaterial);
@@ -313,13 +349,54 @@ const drawerLegS = new THREE.Mesh(drawerLegGeometry, draweLegMaterial);
 const drawerLegTh = new THREE.Mesh(drawerLegGeometry, draweLegMaterial);
 const drawerLegFo = new THREE.Mesh(drawerLegGeometry, draweLegMaterial);
 
+const drawerBox = new THREE.Mesh(
+  new THREE.PlaneGeometry(0.32, 0.13, 20, 20),
+  drawerBoxMaterial
+);
+
+const drawerBoxBottom = new THREE.Mesh(
+  new THREE.PlaneGeometry(0.32, 0.13, 20, 20),
+  drawerBoxMaterial
+);
+
+const drawerBoxHandle = new THREE.Mesh(
+  new THREE.CapsuleGeometry(0.015, 0, 40, 80),
+  wallHolderMaterial
+);
+
+const drawerBoxHandleBottom = new THREE.Mesh(
+  new THREE.CapsuleGeometry(0.015, 0, 40, 80),
+  wallHolderMaterial
+);
+
 drawer.position.set(-0.83, -0.66, 0.75);
 drawerLegF.position.set(-0.94, -0.866, 0.88);
 drawerLegS.position.set(-0.94, -0.866, 0.625);
 drawerLegTh.position.set(-0.72, -0.866, 0.88);
 drawerLegFo.position.set(-0.72, -0.866, 0.625);
+
+drawerBox.rotation.y = Math.PI / 2;
+drawerBox.position.set(-0.667, -0.575, 0.745);
+
+drawerBoxBottom.rotation.y = Math.PI / 2;
+drawerBoxBottom.position.set(-0.667, -0.73, 0.745);
+
+drawerBoxHandle.position.set(-0.659, -0.575, 0.745);
+drawerBoxHandleBottom.position.set(-0.659, -0.73, 0.745);
+
 drawerGroup.position.set(0, 0, 0.03);
-drawerGroup.add(drawer, drawerLegF, drawerLegS, drawerLegTh, drawerLegFo);
+
+drawerGroup.add(
+  drawer,
+  drawerLegF,
+  drawerLegS,
+  drawerLegTh,
+  drawerLegFo,
+  drawerBox,
+  drawerBoxBottom,
+  drawerBoxHandle,
+  drawerBoxHandleBottom
+);
 
 //? COUCH
 
@@ -370,7 +447,9 @@ home.add(
   rightWallMiddleBottom,
   wallsHolder,
   drawerGroup,
-  couchGroup
+  couchGroup,
+  wallSmallHolder,
+  wallSmallHolderSecond
 );
 
 scene.add(home);
@@ -417,7 +496,7 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-// renderer.setClearColor("#f5f5f5");
+renderer.setClearColor("#f5f5f5");
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFShadowMap;
 
