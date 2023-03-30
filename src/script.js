@@ -49,6 +49,14 @@ const wallRoughnessTexture = textureLoader.load(
   "/textures/concrete/plasterRoughness.jpg"
 );
 
+const wallColorTextureLeft = textureLoader.load("/textures/concrete/Color.jpg");
+const wallNormalTextureLeft = textureLoader.load(
+  "/textures/concrete/Normal.jpg"
+);
+const wallRoughnessTextureLeft = textureLoader.load(
+  "/textures/concrete/Roughness.jpg"
+);
+
 const floorColorTexture = textureLoader.load(
   "/textures/concrete/plasterColor.jpg"
 );
@@ -151,10 +159,17 @@ const wallsMaterial = new THREE.MeshStandardMaterial({
   color: "#0B2447",
 });
 
+const wallsMaterialLeft = new THREE.MeshStandardMaterial({
+  map: wallColorTextureLeft,
+  roughnessMap: wallRoughnessTextureLeft,
+  normalMap: wallNormalTextureLeft,
+  color: "#0B2447",
+});
+
 const rightWallSides = new THREE.BoxGeometry(0.6, 2, 0.15);
 const rightWallMiddle = new THREE.BoxGeometry(1.1, 0.6, 0.15);
 
-const leftWall = new THREE.Mesh(wallsGeometry, wallsMaterial);
+const leftWall = new THREE.Mesh(wallsGeometry, wallsMaterialLeft);
 const rightWall = new THREE.Mesh(rightWallSides, wallsMaterial);
 const rightWallRight = new THREE.Mesh(rightWallSides, wallsMaterial);
 const rightWallMiddleTop = new THREE.Mesh(rightWallMiddle, wallsMaterial);
