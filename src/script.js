@@ -247,6 +247,11 @@ const wallSmallHolderSecond = new THREE.Mesh(
   wallHolderMaterial
 );
 
+const wallSmallHolderThird = new THREE.Mesh(
+  new THREE.BoxGeometry(0.275, 0.025, 0.1),
+  wallHolderMaterial
+);
+
 //? homeFloor
 
 const homeFloor = new THREE.Mesh(
@@ -292,12 +297,16 @@ wallsHolder.position.x = -0.065;
 wallsHolder.position.y = -0.414;
 
 wallSmallHolder.position.z = Math.PI / -3.3;
-wallSmallHolder.position.x = 0.75;
-wallSmallHolder.position.y = 0.15;
+wallSmallHolder.position.x = 0.7;
+wallSmallHolder.position.y = 0.2;
 
 wallSmallHolderSecond.position.z = Math.PI / -3.3;
-wallSmallHolderSecond.position.x = 0.65;
-wallSmallHolderSecond.position.y = -0.15;
+wallSmallHolderSecond.position.x = 0.7;
+wallSmallHolderSecond.position.y = 0.0;
+
+wallSmallHolderThird.position.z = Math.PI / -3.3;
+wallSmallHolderThird.position.x = 0.7;
+wallSmallHolderThird.position.y = -0.2;
 //? floors rotation
 homeFloor.rotation.x = Math.PI / 2;
 homeFloor.position.y = -0.95;
@@ -395,7 +404,8 @@ drawerGroup.add(
   drawerBox,
   drawerBoxBottom,
   drawerBoxHandle,
-  drawerBoxHandleBottom
+  drawerBoxHandleBottom,
+  wallSmallHolderThird
 );
 
 //? COUCH
