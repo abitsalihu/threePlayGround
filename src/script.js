@@ -114,9 +114,9 @@ const couchNormalTexture = textureLoader.load(
 const couchRoughnessTexture = textureLoader.load(
   "/textures/couch/couchRoughness.jpg"
 );
-const couchOpacityTexture = textureLoader.load(
-  "/textures/couch/couchOpacity.jpg"
-);
+// const couchOpacityTexture = textureLoader.load(
+//   "/textures/couch/couchOpacity.jpg"
+// );
 
 const woodColorTexture = textureLoader.load("/textures/box/woodColor.jpg");
 const woodNormalTexture = textureLoader.load("/textures/box/woodNormal.jpg");
@@ -190,7 +190,7 @@ const home = new THREE.Group();
 //? main homeFloor
 const sceneFloor = new THREE.Mesh(
   new THREE.BoxGeometry(4, 4, 0.05, 10, 10),
-  new THREE.MeshStandardMaterial({ color: "#F9DEBA", wireframe: true })
+  new THREE.MeshStandardMaterial({ color: "#576CBC", wireframe: false })
 );
 
 sceneFloor.receiveShadow = true;
@@ -215,7 +215,7 @@ const wallsMaterialLeft = new THREE.MeshStandardMaterial({
   color: "#0B2447",
 });
 
-const rightWallSides = new THREE.BoxGeometry(0.6, 2, 0.15);
+const rightWallSides = new THREE.BoxGeometry(0.62, 2, 0.15);
 const rightWallMiddle = new THREE.BoxGeometry(0.93, 0.6, 0.15);
 
 const leftWall = new THREE.Mesh(wallsGeometry, wallsMaterialLeft);
@@ -276,19 +276,19 @@ home.rotation.y = -0.3;
 
 //? walls rotation
 leftWall.rotation.y = Math.PI / 2;
-leftWall.position.x = Math.PI / -3;
+leftWall.position.x = Math.PI / -2.96;
 rightWall.position.z = Math.PI / -2.92;
 rightWall.position.x = -0.825;
 
 rightWallRight.position.z = Math.PI / -2.92;
-rightWallRight.position.x = 0.7;
+rightWallRight.position.x = 0.72;
 
 rightWallMiddleTop.position.z = Math.PI / -2.92;
-rightWallMiddleTop.position.x = -0.061;
+rightWallMiddleTop.position.x = -0.055;
 rightWallMiddleTop.position.y = 0.7;
 
 rightWallMiddleBottom.position.z = Math.PI / -2.92;
-rightWallMiddleBottom.position.x = -0.061;
+rightWallMiddleBottom.position.x = -0.055;
 rightWallMiddleBottom.position.y = -0.7;
 
 wallsHolder.position.z = Math.PI / -3.3;
@@ -310,6 +310,7 @@ wallSmallHolderThird.position.y = -0.2;
 //? floors rotation
 homeFloor.rotation.x = Math.PI / 2;
 homeFloor.position.y = -0.95;
+homeFloor.position.x = 0.012;
 
 //? carpet
 
@@ -326,7 +327,7 @@ const circleRug = new THREE.Mesh(
 );
 
 circleRug.rotation.x = Math.PI / -2;
-circleRug.position.set(0.2, -0.903, 0.2);
+circleRug.position.set(-0.2, -0.903, 0);
 circleRug.castShadow = true;
 circleRug.receiveShadow = true;
 
@@ -345,11 +346,12 @@ const drawerBoxMaterial = new THREE.MeshStandardMaterial({
   roughnessMap: woodRoughnessTexture,
   normalMap: woodNormalTexture,
   color: "#F9DEBA",
+  // color: "#f5f5f5",
 });
 const drawerLegGeometry = new THREE.BoxGeometry(0.065, 0.07, 0.065);
 
 const drawer = new THREE.Mesh(
-  new THREE.BoxGeometry(0.325, 0.36, 0.4),
+  new THREE.BoxGeometry(0.325, 0.36, 1.5),
   wallHolderMaterial
 );
 
@@ -358,13 +360,16 @@ const drawerLegS = new THREE.Mesh(drawerLegGeometry, draweLegMaterial);
 const drawerLegTh = new THREE.Mesh(drawerLegGeometry, draweLegMaterial);
 const drawerLegFo = new THREE.Mesh(drawerLegGeometry, draweLegMaterial);
 
+const drawerLegSi = new THREE.Mesh(drawerLegGeometry, draweLegMaterial);
+const drawerLegSe = new THREE.Mesh(drawerLegGeometry, draweLegMaterial);
+
 const drawerBox = new THREE.Mesh(
-  new THREE.PlaneGeometry(0.32, 0.13, 20, 20),
+  new THREE.PlaneGeometry(0.36, 0.13, 20, 20),
   drawerBoxMaterial
 );
 
 const drawerBoxBottom = new THREE.Mesh(
-  new THREE.PlaneGeometry(0.32, 0.13, 20, 20),
+  new THREE.PlaneGeometry(0.36, 0.13, 20, 20),
   drawerBoxMaterial
 );
 
@@ -378,17 +383,19 @@ const drawerBoxHandleBottom = new THREE.Mesh(
   wallHolderMaterial
 );
 
-drawer.position.set(-0.83, -0.66, 0.75);
+drawer.position.set(-0.83, -0.66, 0.19);
 drawerLegF.position.set(-0.94, -0.866, 0.88);
-drawerLegS.position.set(-0.94, -0.866, 0.625);
+drawerLegS.position.set(-0.94, -0.866, 0.55);
 drawerLegTh.position.set(-0.72, -0.866, 0.88);
-drawerLegFo.position.set(-0.72, -0.866, 0.625);
+drawerLegFo.position.set(-0.72, -0.866, 0.55);
+drawerLegSi.position.set(-0.72, -0.866, -0.45);
+drawerLegSe.position.set(-0.94, -0.866, -0.45);
 
 drawerBox.rotation.y = Math.PI / 2;
-drawerBox.position.set(-0.667, -0.575, 0.745);
+drawerBox.position.set(-0.667, -0.575, 0.725);
 
 drawerBoxBottom.rotation.y = Math.PI / 2;
-drawerBoxBottom.position.set(-0.667, -0.73, 0.745);
+drawerBoxBottom.position.set(-0.667, -0.73, 0.725);
 
 drawerBoxHandle.position.set(-0.659, -0.575, 0.745);
 drawerBoxHandleBottom.position.set(-0.659, -0.73, 0.745);
@@ -401,6 +408,8 @@ drawerGroup.add(
   drawerLegS,
   drawerLegTh,
   drawerLegFo,
+  drawerLegSi,
+  drawerLegSe,
   drawerBox,
   drawerBoxBottom,
   drawerBoxHandle,
@@ -415,7 +424,7 @@ const couchMaterial = new THREE.MeshStandardMaterial({
   map: couchColorTexture,
   roughnessMap: couchRoughnessTexture,
   normalMap: couchNormalTexture,
-  opacity: couchOpacityTexture,
+  // opacity: couchOpacityTexture,
 });
 const couchBase = new THREE.Mesh(
   new THREE.BoxGeometry(0.425, 0.1, 0.9),
@@ -445,6 +454,23 @@ couchGroup.scale.set(0.95, 0.95, 0.95);
 couchGroup.position.set(0, -0.05, 0);
 
 couchGroup.add(couchBase, couchSideL, couchSideR, couchBehind);
+
+const tv = new THREE.Mesh(
+  new THREE.PlaneGeometry(0.9, 0.5),
+  new THREE.MeshStandardMaterial({ color: "#000000" })
+);
+
+const tvScreen = new THREE.Mesh(
+  new THREE.PlaneGeometry(0.8, 0.4),
+  new THREE.MeshStandardMaterial({ color: "#576CBC" })
+);
+
+tv.position.set(-0.98, 0.15, 0);
+tv.rotation.y = Math.PI / 2;
+
+tvScreen.rotation.y = Math.PI / 2;
+tvScreen.position.set(-0.97, 0.15, 0);
+
 //? add to scene
 home.add(
   leftWall,
@@ -459,7 +485,9 @@ home.add(
   drawerGroup,
   couchGroup,
   wallSmallHolder,
-  wallSmallHolderSecond
+  wallSmallHolderSecond,
+  tv
+  // tvScreen
 );
 
 scene.add(home);
@@ -522,7 +550,7 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-renderer.setClearColor("#f5f5f5");
+// renderer.setClearColor("#f5f5f5");
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFShadowMap;
 
