@@ -304,7 +304,7 @@ wallSmallHolderSecond.position.z = Math.PI / -3.3;
 wallSmallHolderSecond.position.x = 0.7;
 wallSmallHolderSecond.position.y = 0.0;
 
-wallSmallHolderThird.position.z = Math.PI / -3.3;
+wallSmallHolderThird.position.z = Math.PI / -3.2;
 wallSmallHolderThird.position.x = 0.7;
 wallSmallHolderThird.position.y = -0.2;
 //? floors rotation
@@ -490,6 +490,22 @@ pointLight.target = homeFloor;
 
 home.add(pointLight);
 pointLight.castShadow = true;
+
+//? ambientlight
+
+const ambientLight = new THREE.AmbientLight("#b9d5ff", 0.6);
+gui.add(ambientLight, "intensity").min(0).max(1).step(0.001);
+scene.add(ambientLight);
+
+//? monlight
+
+const moonLight = new THREE.DirectionalLight("#b9d5ff", 0.12);
+moonLight.position.set(4, 5, -2);
+gui.add(moonLight, "intensity").min(0).max(1).step(0.001);
+gui.add(moonLight.position, "x").min(-5).max(5).step(0.001);
+gui.add(moonLight.position, "y").min(-5).max(5).step(0.001);
+gui.add(moonLight.position, "z").min(-5).max(5).step(0.001);
+scene.add(moonLight);
 
 const pointLightHelper = new THREE.CameraHelper(pointLight.shadow.camera);
 // scene.add(pointLightHelper);
