@@ -37,7 +37,7 @@ const wrapTextures = (fTexture, sTexture, thTexutre, foTexture) => {
   // foTexture.wrapT = THREE.RepeatWrapping;
 };
 
-//? wall textures
+//! wall textures
 
 const wallColorTexture = textureLoader.load(
   "/textures/concrete/plasterColor.jpg"
@@ -57,21 +57,20 @@ const wallRoughnessTextureLeft = textureLoader.load(
   "/textures/concrete/Roughness.jpg"
 );
 
+//! floor tiles
+
 const floorColorTexture = textureLoader.load(
   "/textures/concrete/plasterColor.jpg"
 );
-// const floorAmbientTexture = textureLoader.load(
-//   "/textures/concrete/concreteAmbient.jpg"
-// );
+
 const floorNormalTexture = textureLoader.load(
   "/textures/concrete/plasterNormal.jpg"
 );
 const floorRoughnessTexture = textureLoader.load(
   "/textures/concrete/plasterRoughness.jpg"
 );
-// const floorAmbientTexture = textureLoader.load(
-//   "textures/floor/floorAmbient.jpg"
-// );
+
+//! rug
 
 const rugColorTexture = textureLoader.load("/textures/rug/rugColor.jpg");
 const rugNormalTexture = textureLoader.load("/textures/rug/rugNormal.jpg");
@@ -81,6 +80,8 @@ const rugRoughnessTexture = textureLoader.load(
 const rugDisplacementTexture = textureLoader.load(
   "textures/rug/rugDisplacement.jpg"
 );
+
+//! wall holders
 
 const holderColorTexture = textureLoader.load(
   "/textures/holder/holderColor.jpg"
@@ -96,6 +97,8 @@ const holderDisplacementTexture = textureLoader.load(
   "/textures/holder/holderDisplacement.jpg"
 );
 
+//! metal
+
 const metalColorTexture = textureLoader.load("/textures/metal/metalColor.jpg");
 const metalNormalTexture = textureLoader.load(
   "/textures/metal/metalNormal.jpg"
@@ -106,6 +109,8 @@ const metalRoughnessTexture = textureLoader.load(
 const metalMetalnessTexture = textureLoader.load(
   "/textures/metal/metalMetalness.jpg"
 );
+
+//! metal
 
 const couchColorTexture = textureLoader.load("/textures/couch/couchColor.jpg");
 const couchNormalTexture = textureLoader.load(
@@ -118,11 +123,55 @@ const couchRoughnessTexture = textureLoader.load(
 //   "/textures/couch/couchOpacity.jpg"
 // );
 
+//! wood
+
 const woodColorTexture = textureLoader.load("/textures/box/woodColor.jpg");
 const woodNormalTexture = textureLoader.load("/textures/box/woodNormal.jpg");
 const woodRoughnessTexture = textureLoader.load(
   "/textures/box/woodRoughness.jpg"
 );
+
+//! crate
+
+const crateColorTexture = textureLoader.load("/textures/crate/crateColor.jpg");
+const crateNormalTexture = textureLoader.load(
+  "/textures/crate/crateNormal.jpg"
+);
+const crateRoughnessTexture = textureLoader.load(
+  "/textures/crate/crateRoughness.jpg"
+);
+const crateHeight = textureLoader.load("/textures/crate/crateHeight.png");
+const crateMetalness = textureLoader.load("/textures/crate/crateMetallic.jpg");
+const crateAo = textureLoader.load("textures/crate/crateAo.jpg");
+
+//! window
+
+const windowColorTexture = textureLoader.load(
+  "/textures/window/windowColor.jpg"
+);
+const windowNormalTexture = textureLoader.load(
+  "/textures/window/windowNormal.jpg"
+);
+const windowRoughnessTexture = textureLoader.load(
+  "/textures/window/windowRoughness.jpg"
+);
+const windowHeight = textureLoader.load("/textures/window/windowHeight.png");
+const windowMetalness = textureLoader.load(
+  "/textures/window/windowMetalness.jpg"
+);
+const windowAo = textureLoader.load("textures/window/windowAo.jpg");
+const windowOpacity = textureLoader.load("textures/window/windowOpacity.jpg");
+
+//! xbox
+
+const xboxColorTexture = textureLoader.load("/textures/xbox/xboxColor.jpg");
+const xboxNormalTexture = textureLoader.load("/textures/xbox/xboxNormal.jpg");
+const xboxRoughnessTexture = textureLoader.load(
+  "/textures/xbox/xboxRoughness.jpg"
+);
+const xboxHeight = textureLoader.load("/textures/xbox/xboxHeight.png");
+const xboxMetalness = textureLoader.load("/textures/xbox/xboxMetalness.jpg");
+const xboxAo = textureLoader.load("textures/xbox/xboxAo.jpg");
 
 wallColorTexture.repeat.set(2.5, 2.5);
 wallNormalTexture.repeat.set(2.5, 2.5);
@@ -145,8 +194,20 @@ couchNormalTexture.repeat.set(0.9, 0.9);
 couchRoughnessTexture.repeat.set(0.9, 0.9);
 
 woodColorTexture.repeat.set(0.4, 0.4);
-woodNormalTexture.repeat.set(0.9, 0.9);
-woodRoughnessTexture.repeat.set(0.9, 0.9);
+woodNormalTexture.repeat.set(0.4, 0.4);
+woodRoughnessTexture.repeat.set(0.4, 0.4);
+
+crateColorTexture.repeat.set(1, 1);
+crateNormalTexture.repeat.set(0.4, 0.4);
+crateRoughnessTexture.repeat.set(0.4, 0.4);
+
+windowColorTexture.repeat.set(0.4, 0.4);
+windowNormalTexture.repeat.set(0.65, 0.65);
+windowRoughnessTexture.repeat.set(0.65, 0.65);
+
+xboxColorTexture.repeat.set(0.1, 0.1);
+xboxNormalTexture.repeat.set(0.65, 0.65);
+xboxRoughnessTexture.repeat.set(0.65, 0.65);
 
 wrapTextures(
   wallColorTexture,
@@ -178,7 +239,28 @@ wrapTextures(
   couchRoughnessTexture
 );
 
+wrapTextures(
+  xboxColorTexture,
+  // wallAmbientTexture,
+  xboxNormalTexture,
+  xboxRoughnessTexture
+);
+
 wrapTextures(woodColorTexture, woodNormalTexture, woodRoughnessTexture);
+
+wrapTextures(
+  crateColorTexture,
+  crateAo,
+  crateNormalTexture,
+  crateRoughnessTexture
+);
+
+wrapTextures(
+  windowColorTexture,
+  windowAo,
+  windowNormalTexture,
+  windowRoughnessTexture
+);
 //? floor textures
 
 //? OBJECTS
@@ -471,6 +553,92 @@ tv.rotation.y = Math.PI / 2;
 tvScreen.rotation.y = Math.PI / 2;
 tvScreen.position.set(-0.97, 0.15, 0);
 
+//? crate
+
+const crate = new THREE.Mesh(
+  new THREE.BoxGeometry(0.5, 0.35, 0.25),
+  new THREE.MeshStandardMaterial({
+    map: crateColorTexture,
+    aoMap: crateAo,
+    normalMap: crateNormalTexture,
+    roughness: crateRoughnessTexture,
+
+    metalnessMap: crateMetalness,
+  })
+);
+
+crate.position.set(0.7, -0.73, -0.875);
+
+//? light
+
+const lightGroup = new THREE.Group();
+
+const standingLight = new THREE.Mesh(
+  new THREE.BoxGeometry(0.32, 0.32, 0.32),
+  draweLegMaterial
+);
+
+const lightPole = new THREE.Mesh(
+  new THREE.BoxGeometry(0.04, 0.8, 0.04),
+  new THREE.MeshStandardMaterial({ color: "#f5f5f5" })
+);
+
+standingLight.position.set(-0.82, -0.72, -0.75);
+
+lightPole.position.set(-0.82, -0.15, -0.75);
+
+lightGroup.add(standingLight, lightPole);
+
+//? window
+
+const homeWindow = new THREE.Mesh(
+  new THREE.PlaneGeometry(0.95, 0.8),
+  new THREE.MeshStandardMaterial({
+    map: windowColorTexture,
+    normalMap: windowNormalTexture,
+    aoMap: windowAo,
+    metalnessMap: windowMetalness,
+    transparent: true,
+    roughnessMap: windowRoughnessTexture,
+    alphaMap: windowOpacity,
+  })
+);
+
+homeWindow.position.set(-0.065, -0.002, -1.08);
+
+//? desk appliances
+
+const console = new THREE.Group();
+const xbox = new THREE.Mesh(
+  new THREE.BoxGeometry(0.14, 0.24, 0.17),
+  new THREE.MeshStandardMaterial({
+    // map: xboxColorTexture,
+    // normalMap: xboxNormalTexture,
+    // aoMap: xboxAo,
+    // metalnessMap: xboxMetalness,
+    // roughnessMap: xboxRoughnessTexture,
+    color: "#f5f5f5",
+  })
+);
+
+const xboxLogo = new THREE.Mesh(
+  new THREE.CapsuleGeometry(0.007, 0, 40, 80),
+  new THREE.MeshStandardMaterial({ color: "#000000" })
+);
+
+const xboxCD = new THREE.Mesh(
+  new THREE.BoxGeometry(0.01, 0.1, 0.01),
+  new THREE.MeshStandardMaterial({ color: "#000000" })
+);
+
+xbox.position.set(-0.8, -0.359, -0.35);
+xbox.rotation.y = -0.3;
+xboxLogo.rotateOnAxis.y = -0.03;
+xboxLogo.position.set(-0.745, -0.27, -0.28);
+xboxCD.rotateOnAxis.y = -0.03;
+xboxCD.position.set(-0.745, -0.4, -0.28);
+
+console.add(xbox, xboxLogo, xboxCD);
 //? add to scene
 home.add(
   leftWall,
@@ -486,8 +654,10 @@ home.add(
   couchGroup,
   wallSmallHolder,
   wallSmallHolderSecond,
-  tv
-  // tvScreen
+  tv,
+  lightGroup,
+  homeWindow,
+  console
 );
 
 scene.add(home);
@@ -536,7 +706,6 @@ gui.add(moonLight.position, "z").min(-5).max(5).step(0.001);
 scene.add(moonLight);
 
 const pointLightHelper = new THREE.CameraHelper(pointLight.shadow.camera);
-// scene.add(pointLightHelper);
 
 //? orbit controls
 const controls = new OrbitControls(camera, canvas);
@@ -550,7 +719,7 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-// renderer.setClearColor("#f5f5f5");
+renderer.setClearColor("#f5f5f5");
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFShadowMap;
 
