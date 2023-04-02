@@ -37,230 +37,230 @@ const wrapTextures = (fTexture, sTexture, thTexutre, foTexture) => {
   // foTexture.wrapT = THREE.RepeatWrapping;
 };
 
-// //! wall textures
+// // //! wall textures
 
-const wallColorTexture = textureLoader.load(
-  "/textures/concrete/plasterColor.jpg"
-);
-const wallNormalTexture = textureLoader.load(
-  "/textures/concrete/plasterNormal.jpg"
-);
-const wallRoughnessTexture = textureLoader.load(
-  "/textures/concrete/plasterRoughness.jpg"
-);
-
-const wallColorTextureLeft = textureLoader.load("/textures/concrete/Color.jpg");
-const wallNormalTextureLeft = textureLoader.load(
-  "/textures/concrete/Normal.jpg"
-);
-const wallRoughnessTextureLeft = textureLoader.load(
-  "/textures/concrete/Roughness.jpg"
-);
-
-//! floor tiles
-
-const floorColorTexture = textureLoader.load(
-  "/textures/concrete/plasterColor.jpg"
-);
-
-const floorNormalTexture = textureLoader.load(
-  "/textures/concrete/plasterNormal.jpg"
-);
-const floorRoughnessTexture = textureLoader.load(
-  "/textures/concrete/plasterRoughness.jpg"
-);
-
-// //! rug
-
-const rugColorTexture = textureLoader.load("/textures/rug/rugColor.jpg");
-const rugNormalTexture = textureLoader.load("/textures/rug/rugNormal.jpg");
-const rugRoughnessTexture = textureLoader.load(
-  "/textures/rug/rugRoughness.jpg"
-);
-const rugDisplacementTexture = textureLoader.load(
-  "textures/rug/rugDisplacement.jpg"
-);
-
-//! wall holders
-
-const holderColorTexture = textureLoader.load(
-  "/textures/holder/holderColor.jpg"
-);
-const holderNormalTexture = textureLoader.load(
-  "/textures/holder/holderNormal.jpg"
-);
-const holderRoughnessTexture = textureLoader.load(
-  "/textures/holder/holderRoughness.jpg"
-);
-
-const holderDisplacementTexture = textureLoader.load(
-  "/textures/holder/holderDisplacement.jpg"
-);
-
-//! metal
-
-const metalColorTexture = textureLoader.load("/textures/metal/metalColor.jpg");
-const metalNormalTexture = textureLoader.load(
-  "/textures/metal/metalNormal.jpg"
-);
-const metalRoughnessTexture = textureLoader.load(
-  "/textures/metal/metalRoughness.jpg"
-);
-const metalMetalnessTexture = textureLoader.load(
-  "/textures/metal/metalMetalness.jpg"
-);
-
-//! metal
-
-const couchColorTexture = textureLoader.load("/textures/couch/couchColor.jpg");
-const couchNormalTexture = textureLoader.load(
-  "/textures/couch/couchNormal.jpg"
-);
-const couchRoughnessTexture = textureLoader.load(
-  "/textures/couch/couchRoughness.jpg"
-);
-// const couchOpacityTexture = textureLoader.load(
-//   "/textures/couch/couchOpacity.jpg"
+// const wallColorTexture = textureLoader.load(
+//   "/textures/concrete/plasterColor.jpg"
+// );
+// const wallNormalTexture = textureLoader.load(
+//   "/textures/concrete/plasterNormal.jpg"
+// );
+// const wallRoughnessTexture = textureLoader.load(
+//   "/textures/concrete/plasterRoughness.jpg"
 // );
 
-//! wood
+// const wallColorTextureLeft = textureLoader.load("/textures/concrete/Color.jpg");
+// const wallNormalTextureLeft = textureLoader.load(
+//   "/textures/concrete/Normal.jpg"
+// );
+// const wallRoughnessTextureLeft = textureLoader.load(
+//   "/textures/concrete/Roughness.jpg"
+// );
 
-const woodColorTexture = textureLoader.load("/textures/box/woodColor.jpg");
-const woodNormalTexture = textureLoader.load("/textures/box/woodNormal.jpg");
-const woodRoughnessTexture = textureLoader.load(
-  "/textures/box/woodRoughness.jpg"
-);
+// //! floor tiles
 
-//! crate
+// const floorColorTexture = textureLoader.load(
+//   "/textures/concrete/plasterColor.jpg"
+// );
 
-const crateColorTexture = textureLoader.load("/textures/crate/crateColor.jpg");
-const crateNormalTexture = textureLoader.load(
-  "/textures/crate/crateNormal.jpg"
-);
-const crateRoughnessTexture = textureLoader.load(
-  "/textures/crate/crateRoughness.jpg"
-);
-const crateHeight = textureLoader.load("/textures/crate/crateHeight.png");
-const crateMetalness = textureLoader.load("/textures/crate/crateMetallic.jpg");
-const crateAo = textureLoader.load("textures/crate/crateAo.jpg");
+// const floorNormalTexture = textureLoader.load(
+//   "/textures/concrete/plasterNormal.jpg"
+// );
+// const floorRoughnessTexture = textureLoader.load(
+//   "/textures/concrete/plasterRoughness.jpg"
+// );
 
-//! window
+// // //! rug
 
-const windowColorTexture = textureLoader.load(
-  "/textures/window/windowColor.jpg"
-);
-const windowNormalTexture = textureLoader.load(
-  "/textures/window/windowNormal.jpg"
-);
-const windowRoughnessTexture = textureLoader.load(
-  "/textures/window/windowRoughness.jpg"
-);
-const windowHeight = textureLoader.load("/textures/window/windowHeight.png");
-const windowMetalness = textureLoader.load(
-  "/textures/window/windowMetalness.jpg"
-);
-const windowAo = textureLoader.load("textures/window/windowAo.jpg");
-const windowOpacity = textureLoader.load("textures/window/windowOpacity.jpg");
+// const rugColorTexture = textureLoader.load("/textures/rug/rugColor.jpg");
+// const rugNormalTexture = textureLoader.load("/textures/rug/rugNormal.jpg");
+// const rugRoughnessTexture = textureLoader.load(
+//   "/textures/rug/rugRoughness.jpg"
+// );
+// const rugDisplacementTexture = textureLoader.load(
+//   "textures/rug/rugDisplacement.jpg"
+// );
 
-//! xbox
+// //! wall holders
 
-const xboxColorTexture = textureLoader.load("/textures/xbox/xboxColor.jpg");
-const xboxNormalTexture = textureLoader.load("/textures/xbox/xboxNormal.jpg");
-const xboxRoughnessTexture = textureLoader.load(
-  "/textures/xbox/xboxRoughness.jpg"
-);
-const xboxHeight = textureLoader.load("/textures/xbox/xboxHeight.png");
-const xboxMetalness = textureLoader.load("/textures/xbox/xboxMetalness.jpg");
-const xboxAo = textureLoader.load("textures/xbox/xboxAo.jpg");
+// const holderColorTexture = textureLoader.load(
+//   "/textures/holder/holderColor.jpg"
+// );
+// const holderNormalTexture = textureLoader.load(
+//   "/textures/holder/holderNormal.jpg"
+// );
+// const holderRoughnessTexture = textureLoader.load(
+//   "/textures/holder/holderRoughness.jpg"
+// );
 
-wallColorTexture.repeat.set(2.5, 2.5);
-wallNormalTexture.repeat.set(2.5, 2.5);
-wallRoughnessTexture.repeat.set(2.5, 2.5);
+// const holderDisplacementTexture = textureLoader.load(
+//   "/textures/holder/holderDisplacement.jpg"
+// );
 
-floorColorTexture.repeat.set(2.5, 2.5);
-floorNormalTexture.repeat.set(2.5, 2.5);
-floorRoughnessTexture.repeat.set(2.5, 2.5);
+// //! metal
 
-rugColorTexture.repeat.set(2.5, 2.5);
-rugNormalTexture.repeat.set(2.5, 2.5);
-rugRoughnessTexture.repeat.set(2.5, 2.5);
+// const metalColorTexture = textureLoader.load("/textures/metal/metalColor.jpg");
+// const metalNormalTexture = textureLoader.load(
+//   "/textures/metal/metalNormal.jpg"
+// );
+// const metalRoughnessTexture = textureLoader.load(
+//   "/textures/metal/metalRoughness.jpg"
+// );
+// const metalMetalnessTexture = textureLoader.load(
+//   "/textures/metal/metalMetalness.jpg"
+// );
 
-holderColorTexture.repeat.set(2, 2);
-holderNormalTexture.repeat.set(2, 2);
-holderRoughnessTexture.repeat.set(2, 2);
+// //! metal
 
-couchColorTexture.repeat.set(0.9, 0.9);
-couchNormalTexture.repeat.set(0.9, 0.9);
-couchRoughnessTexture.repeat.set(0.9, 0.9);
+// const couchColorTexture = textureLoader.load("/textures/couch/couchColor.jpg");
+// const couchNormalTexture = textureLoader.load(
+//   "/textures/couch/couchNormal.jpg"
+// );
+// const couchRoughnessTexture = textureLoader.load(
+//   "/textures/couch/couchRoughness.jpg"
+// );
+// // const couchOpacityTexture = textureLoader.load(
+// //   "/textures/couch/couchOpacity.jpg"
+// // );
 
-woodColorTexture.repeat.set(0.4, 0.4);
-woodNormalTexture.repeat.set(0.4, 0.4);
-woodRoughnessTexture.repeat.set(0.4, 0.4);
+// //! wood
 
-crateColorTexture.repeat.set(1, 1);
-crateNormalTexture.repeat.set(0.4, 0.4);
-crateRoughnessTexture.repeat.set(0.4, 0.4);
+// const woodColorTexture = textureLoader.load("/textures/box/woodColor.jpg");
+// const woodNormalTexture = textureLoader.load("/textures/box/woodNormal.jpg");
+// const woodRoughnessTexture = textureLoader.load(
+//   "/textures/box/woodRoughness.jpg"
+// );
 
-windowColorTexture.repeat.set(0.4, 0.4);
-windowNormalTexture.repeat.set(0.65, 0.65);
-windowRoughnessTexture.repeat.set(0.65, 0.65);
+// //! crate
 
-xboxColorTexture.repeat.set(0.1, 0.1);
-xboxNormalTexture.repeat.set(0.65, 0.65);
-xboxRoughnessTexture.repeat.set(0.65, 0.65);
+// const crateColorTexture = textureLoader.load("/textures/crate/crateColor.jpg");
+// const crateNormalTexture = textureLoader.load(
+//   "/textures/crate/crateNormal.jpg"
+// );
+// const crateRoughnessTexture = textureLoader.load(
+//   "/textures/crate/crateRoughness.jpg"
+// );
+// const crateHeight = textureLoader.load("/textures/crate/crateHeight.png");
+// const crateMetalness = textureLoader.load("/textures/crate/crateMetallic.jpg");
+// const crateAo = textureLoader.load("textures/crate/crateAo.jpg");
 
-wrapTextures(
-  wallColorTexture,
-  // wallAmbientTexture,
-  wallNormalTexture,
-  wallRoughnessTexture
-);
+// //! window
 
-wrapTextures(rugColorTexture, rugNormalTexture, rugRoughnessTexture);
+// const windowColorTexture = textureLoader.load(
+//   "/textures/window/windowColor.jpg"
+// );
+// const windowNormalTexture = textureLoader.load(
+//   "/textures/window/windowNormal.jpg"
+// );
+// const windowRoughnessTexture = textureLoader.load(
+//   "/textures/window/windowRoughness.jpg"
+// );
+// const windowHeight = textureLoader.load("/textures/window/windowHeight.png");
+// const windowMetalness = textureLoader.load(
+//   "/textures/window/windowMetalness.jpg"
+// );
+// const windowAo = textureLoader.load("textures/window/windowAo.jpg");
+// const windowOpacity = textureLoader.load("textures/window/windowOpacity.jpg");
 
-wrapTextures(
-  floorColorTexture,
-  // floorAmbientTexture,
-  floorNormalTexture,
-  floorRoughnessTexture
-);
+// //! xbox
 
-wrapTextures(
-  holderColorTexture,
-  // wallAmbientTexture,
-  holderNormalTexture,
-  holderRoughnessTexture
-);
+// const xboxColorTexture = textureLoader.load("/textures/xbox/xboxColor.jpg");
+// const xboxNormalTexture = textureLoader.load("/textures/xbox/xboxNormal.jpg");
+// const xboxRoughnessTexture = textureLoader.load(
+//   "/textures/xbox/xboxRoughness.jpg"
+// );
+// const xboxHeight = textureLoader.load("/textures/xbox/xboxHeight.png");
+// const xboxMetalness = textureLoader.load("/textures/xbox/xboxMetalness.jpg");
+// const xboxAo = textureLoader.load("textures/xbox/xboxAo.jpg");
 
-wrapTextures(
-  couchColorTexture,
-  // wallAmbientTexture,
-  couchNormalTexture,
-  couchRoughnessTexture
-);
+// wallColorTexture.repeat.set(2.5, 2.5);
+// wallNormalTexture.repeat.set(2.5, 2.5);
+// wallRoughnessTexture.repeat.set(2.5, 2.5);
 
-wrapTextures(
-  xboxColorTexture,
-  // wallAmbientTexture,
-  xboxNormalTexture,
-  xboxRoughnessTexture
-);
+// floorColorTexture.repeat.set(2.5, 2.5);
+// floorNormalTexture.repeat.set(2.5, 2.5);
+// floorRoughnessTexture.repeat.set(2.5, 2.5);
 
-wrapTextures(woodColorTexture, woodNormalTexture, woodRoughnessTexture);
+// rugColorTexture.repeat.set(2.5, 2.5);
+// rugNormalTexture.repeat.set(2.5, 2.5);
+// rugRoughnessTexture.repeat.set(2.5, 2.5);
 
-wrapTextures(
-  crateColorTexture,
-  crateAo,
-  crateNormalTexture,
-  crateRoughnessTexture
-);
+// holderColorTexture.repeat.set(2, 2);
+// holderNormalTexture.repeat.set(2, 2);
+// holderRoughnessTexture.repeat.set(2, 2);
 
-wrapTextures(
-  windowColorTexture,
-  windowAo,
-  windowNormalTexture,
-  windowRoughnessTexture
-);
+// couchColorTexture.repeat.set(0.9, 0.9);
+// couchNormalTexture.repeat.set(0.9, 0.9);
+// couchRoughnessTexture.repeat.set(0.9, 0.9);
+
+// woodColorTexture.repeat.set(0.4, 0.4);
+// woodNormalTexture.repeat.set(0.4, 0.4);
+// woodRoughnessTexture.repeat.set(0.4, 0.4);
+
+// crateColorTexture.repeat.set(1, 1);
+// crateNormalTexture.repeat.set(0.4, 0.4);
+// crateRoughnessTexture.repeat.set(0.4, 0.4);
+
+// windowColorTexture.repeat.set(0.4, 0.4);
+// windowNormalTexture.repeat.set(0.65, 0.65);
+// windowRoughnessTexture.repeat.set(0.65, 0.65);
+
+// xboxColorTexture.repeat.set(0.1, 0.1);
+// xboxNormalTexture.repeat.set(0.65, 0.65);
+// xboxRoughnessTexture.repeat.set(0.65, 0.65);
+
+// wrapTextures(
+//   wallColorTexture,
+//   // wallAmbientTexture,
+//   wallNormalTexture,
+//   wallRoughnessTexture
+// );
+
+// wrapTextures(rugColorTexture, rugNormalTexture, rugRoughnessTexture);
+
+// wrapTextures(
+//   floorColorTexture,
+//   // floorAmbientTexture,
+//   floorNormalTexture,
+//   floorRoughnessTexture
+// );
+
+// wrapTextures(
+//   holderColorTexture,
+//   // wallAmbientTexture,
+//   holderNormalTexture,
+//   holderRoughnessTexture
+// );
+
+// wrapTextures(
+//   couchColorTexture,
+//   // wallAmbientTexture,
+//   couchNormalTexture,
+//   couchRoughnessTexture
+// );
+
+// wrapTextures(
+//   xboxColorTexture,
+//   // wallAmbientTexture,
+//   xboxNormalTexture,
+//   xboxRoughnessTexture
+// );
+
+// wrapTextures(woodColorTexture, woodNormalTexture, woodRoughnessTexture);
+
+// wrapTextures(
+//   crateColorTexture,
+//   crateAo,
+//   crateNormalTexture,
+//   crateRoughnessTexture
+// );
+
+// wrapTextures(
+//   windowColorTexture,
+//   windowAo,
+//   windowNormalTexture,
+//   windowRoughnessTexture
+// );
 // //? floor textures
 
 // //? OBJECTS
@@ -284,16 +284,16 @@ sceneFloor.position.y = -0.925 - 0.075;
 //? walls
 const wallsGeometry = new THREE.BoxGeometry(2, 2, 0.15);
 const wallsMaterial = new THREE.MeshStandardMaterial({
-  map: wallColorTexture,
-  roughnessMap: wallRoughnessTexture,
-  normalMap: wallNormalTexture,
+  // map: wallColorTexture,
+  // roughnessMap: wallRoughnessTexture,
+  // normalMap: wallNormalTexture,
   color: "#0B2447",
 });
 
 const wallsMaterialLeft = new THREE.MeshStandardMaterial({
-  map: wallColorTextureLeft,
-  roughnessMap: wallRoughnessTextureLeft,
-  normalMap: wallNormalTextureLeft,
+  // map: wallColorTextureLeft,
+  // roughnessMap: wallRoughnessTextureLeft,
+  // normalMap: wallNormalTextureLeft,
   color: "#0B2447",
 });
 
@@ -312,9 +312,9 @@ leftWall.receiveShadow = true;
 // //? walls holder
 
 const wallHolderMaterial = new THREE.MeshStandardMaterial({
-  map: holderColorTexture,
-  roughnessMap: holderRoughnessTexture,
-  normalMap: holderNormalTexture,
+  // map: holderColorTexture,
+  // roughnessMap: holderRoughnessTexture,
+  // normalMap: holderNormalTexture,
 });
 
 const wallsHolder = new THREE.Mesh(
@@ -355,9 +355,9 @@ const homeFloor = new THREE.Mesh(
   new THREE.BoxGeometry(2, 2, 0.1, 10, 10),
 
   new THREE.MeshStandardMaterial({
-    map: floorColorTexture,
-    roughnessMap: floorRoughnessTexture,
-    normalMap: floorNormalTexture,
+    // map: floorColorTexture,
+    // roughnessMap: floorRoughnessTexture,
+    // normalMap: floorNormalTexture,
     color: "#4E6E81",
   })
 );
@@ -418,11 +418,11 @@ const circleRug = new THREE.Mesh(
   new THREE.CircleGeometry(0.6, 90, 50, 10),
 
   new THREE.MeshStandardMaterial({
-    map: rugColorTexture,
-    normalMap: rugNormalTexture,
-    roughnessMap: rugRoughnessTexture,
-    displacementMap: rugDisplacementTexture,
-    displacementScale: 0.01,
+    // map: rugColorTexture,
+    // normalMap: rugNormalTexture,
+    // roughnessMap: rugRoughnessTexture,
+    // displacementMap: rugDisplacementTexture,
+    // displacementScale: 0.01,
   })
 );
 
@@ -435,15 +435,15 @@ circleRug.receiveShadow = true;
 const drawerGroup = new THREE.Group();
 
 const draweLegMaterial = new THREE.MeshStandardMaterial({
-  map: metalColorTexture,
-  roughnessMap: metalRoughnessTexture,
-  normalMap: metalNormalTexture,
-  metalnessMap: metalMetalnessTexture,
+  // map: metalColorTexture,
+  // roughnessMap: metalRoughnessTexture,
+  // normalMap: metalNormalTexture,
+  // metalnessMap: metalMetalnessTexture,
 });
 const drawerBoxMaterial = new THREE.MeshStandardMaterial({
-  map: woodColorTexture,
-  roughnessMap: woodRoughnessTexture,
-  normalMap: woodNormalTexture,
+  // map: woodColorTexture,
+  // roughnessMap: woodRoughnessTexture,
+  // normalMap: woodNormalTexture,
   color: "#F9DEBA",
 });
 const drawerLegGeometry = new THREE.BoxGeometry(0.065, 0.07, 0.065);
@@ -524,9 +524,9 @@ drawerGroup.add(
 
 const couchGroup = new THREE.Group();
 const couchMaterial = new THREE.MeshStandardMaterial({
-  map: couchColorTexture,
-  roughnessMap: couchRoughnessTexture,
-  normalMap: couchNormalTexture,
+  // map: couchColorTexture,
+  // roughnessMap: couchRoughnessTexture,
+  // normalMap: couchNormalTexture,
   // opacity: couchOpacityTexture,
 });
 const couchBase = new THREE.Mesh(
@@ -594,12 +594,11 @@ tvScreen.position.set(-0.97, 0.15, 0);
 const crate = new THREE.Mesh(
   new THREE.BoxGeometry(0.5, 0.35, 0.25),
   new THREE.MeshStandardMaterial({
-    map: crateColorTexture,
-    aoMap: crateAo,
-    normalMap: crateNormalTexture,
-    roughness: crateRoughnessTexture,
-
-    metalnessMap: crateMetalness,
+    // map: crateColorTexture,
+    // aoMap: crateAo,
+    // normalMap: crateNormalTexture,
+    // roughness: crateRoughnessTexture,
+    // metalnessMap: crateMetalness,
   })
 );
 
@@ -660,13 +659,13 @@ counterLight.add(counterLightBox, counterLightBoxPole, counterLightBoxCone);
 const homeWindow = new THREE.Mesh(
   new THREE.PlaneGeometry(0.95, 0.8),
   new THREE.MeshStandardMaterial({
-    map: windowColorTexture,
-    normalMap: windowNormalTexture,
-    aoMap: windowAo,
-    metalnessMap: windowMetalness,
-    transparent: true,
-    roughnessMap: windowRoughnessTexture,
-    alphaMap: windowOpacity,
+    // map: windowColorTexture,
+    // normalMap: windowNormalTexture,
+    // aoMap: windowAo,
+    // metalnessMap: windowMetalness,
+    // transparent: true,
+    // roughnessMap: windowRoughnessTexture,
+    // alphaMap: windowOpacity,
   })
 );
 
@@ -680,11 +679,11 @@ const xboxConsole = new THREE.Group();
 const xbox = new THREE.Mesh(
   new THREE.BoxGeometry(0.14, 0.24, 0.17),
   new THREE.MeshStandardMaterial({
-    map: xboxColorTexture,
-    normalMap: xboxNormalTexture,
-    aoMap: xboxAo,
-    metalnessMap: xboxMetalness,
-    roughnessMap: xboxRoughnessTexture,
+    // map: xboxColorTexture,
+    // normalMap: xboxNormalTexture,
+    // aoMap: xboxAo,
+    // metalnessMap: xboxMetalness,
+    // roughnessMap: xboxRoughnessTexture,
   })
 );
 
