@@ -93,9 +93,9 @@ const holderRoughnessTexture = textureLoader.load(
   "/textures/holder/holderRoughness.jpg"
 );
 
-const holderDisplacementTexture = textureLoader.load(
-  "/textures/holder/holderDisplacement.jpg"
-);
+// const holderDisplacementTexture = textureLoader.load(
+//   "/textures/holder/holderDisplacement.jpg"
+// );
 
 //! metal
 
