@@ -690,7 +690,6 @@ const xbox = new THREE.Mesh(
     aoMap: xboxAo,
     metalnessMap: xboxMetalness,
     roughnessMap: xboxRoughnessTexture,
-    // color: "#f5f5f5",
   })
 );
 
@@ -733,7 +732,8 @@ home.add(
   standingLightGroup,
   homeWindow,
   xboxConsole,
-  counterLight
+  counterLight,
+  crate
 );
 
 scene.add(home);
@@ -758,8 +758,6 @@ const pointlightHelper = new THREE.PointLightHelper(boxPointLight);
 const standingPointLight = new THREE.PointLight("#F5F5F5", 2, 4);
 const standingpointlightHelper = new THREE.PointLightHelper(standingPointLight);
 const standingPointCamera = new THREE.Camera();
-// boxPointLight.position.scale = 0.1;
-// boxPointLight.scale.x = 0.5;
 boxPointLight.scale.set(0.085, 0.085, 0.085);
 boxPointLight.position.set(-0.55, -0.21, 0.985);
 
@@ -769,40 +767,16 @@ standingPointLight.position.set(-0.95, -0.1, -0.48);
 standingPointLight.shadow.mapSize.width = 256 * 2;
 standingPointLight.shadow.mapSize.height = 256 * 2;
 
-// boxPointLight.castShadow = true;
 standingPointLight.castShadow = true;
 
 const scenePointLight = new THREE.PointLight("#F5F5F5", 5.5, 4);
 const scenePointLightHelper = new THREE.PointLightHelper(scenePointLight);
 scenePointLight.position.set(0, 0.821, 0);
-// gui.add(scenePointLight, "intensity").min(0).max(10).step(0.001);
-// gui.add(scenePointLight.position, "x").min(-5).max(5).step(0.001);
-// gui.add(scenePointLight.position, "y").min(-5).max(5).step(0.001);
-// gui.add(scenePointLight.position, "z").min(-5).max(5).step(0.001);
-
 gui.add(camera.position, "x").min(-4).max(5).step(0.001);
 gui.add(camera.position, "y").min(-4).max(5).step(0.001);
 gui.add(camera.position, "z").min(-4).max(5).step(0.001);
-home.add(
-  standingPointLight,
-  scenePointLight,
-  boxPointLight
-  // scenePointLightHelper
-);
+home.add(standingPointLight, scenePointLight, boxPointLight);
 //? ambientlight
-
-// const ambientLight = new THREE.AmbientLight("#b9d5ff", 0.6);
-// // gui.add(ambientLight, "intensity").min(0).max(1).step(0.001);
-
-// home.add(ambientLight);
-
-// const moonLight = new THREE.DirectionalLight("#b9d5ff", 0.06);
-// moonLight.position.set(4, 5, -2);
-// gui.add(moonLight, "intensity").min(0).max(1).step(0.001);
-// gui.add(moonLight.position, "x").min(-5).max(5).step(0.001);
-// gui.add(moonLight.position, "y").min(-5).max(5).step(0.001);
-// gui.add(moonLight.position, "z").min(-5).max(5).step(0.001);
-// scene.add(moonLight);
 
 //? monlight
 
