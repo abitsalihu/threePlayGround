@@ -4,7 +4,7 @@ const isCodeSandbox =
 export default {
   root: "src/",
   publicDir: "../static/",
-  base: "./threePlayGround/",
+  base: "/threePlayGround",
   server: {
     host: true,
     open: !isCodeSandbox, // Open if it's not a CodeSandbox
