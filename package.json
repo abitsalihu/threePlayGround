@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "vercel --prod"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "gsap": "^3.11.5",
     "lil-gui": "^0.18.1",
     "three": "^0.150.1",
+    "vercel": "^28.18.3",
     "vite": "^4.2.1"
   }
 }
