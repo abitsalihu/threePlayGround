@@ -2,9 +2,9 @@ const isCodeSandbox =
   "SANDBOX_URL" in process.env || "CODESANDBOX_HOST" in process.env;
 
 export default {
-  root: "src/",
+  root: "dist/",
   publicDir: "../static/",
-  base: "/threePlayGround",
+  base: "/threePlayGround/",
   server: {
     host: true,
     open: !isCodeSandbox, // Open if it's not a CodeSandbox
