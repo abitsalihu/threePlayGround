@@ -2,7 +2,7 @@ const isCodeSandbox =
   "SANDBOX_URL" in process.env || "CODESANDBOX_HOST" in process.env;
 
 export default {
-  root: "dist/assets",
+  root: "src/",
   publicDir: "../static/",
   base: "/threePlayGround/",
   server: {
