@@ -793,6 +793,8 @@ renderer.shadowMap.type = THREE.PCFShadowMap;
 
 //? window resize
 
+console.log("blue");
+
 window.addEventListener("resize", () => {
   //! update sizes
   sizes.width = window.innerWidth;
