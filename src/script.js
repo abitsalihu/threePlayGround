@@ -3,27 +3,27 @@ import * as lil from "lil-gui";
 import * as gsap from "gsap";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
-//? GUI
+// //? GUI
 
 const gui = new lil.GUI();
 
-//? SCENE
+// //? SCENE
 
 const scene = new THREE.Scene();
 const canvas = document.querySelector(".web-gl");
 
-//? sizes
+// //? sizes
 
 const sizes = {
   width: window.innerWidth,
   height: window.innerHeight,
 };
 
-//? Texture Loader
+// //? Texture Loader
 
 const textureLoader = new THREE.TextureLoader();
 
-//? wrap textures function
+// //? wrap textures function
 
 const wrapTextures = (fTexture, sTexture, thTexutre, foTexture) => {
   fTexture.wrapS = THREE.RepeatWrapping;
@@ -37,7 +37,7 @@ const wrapTextures = (fTexture, sTexture, thTexutre, foTexture) => {
   // foTexture.wrapT = THREE.RepeatWrapping;
 };
 
-//! wall textures
+// //! wall textures
 
 const wallColorTexture = textureLoader.load(
   "/textures/concrete/plasterColor.jpg"
@@ -70,7 +70,7 @@ const floorRoughnessTexture = textureLoader.load(
   "/textures/concrete/plasterRoughness.jpg"
 );
 
-//! rug
+// //! rug
 
 const rugColorTexture = textureLoader.load("/textures/rug/rugColor.jpg");
 const rugNormalTexture = textureLoader.load("/textures/rug/rugNormal.jpg");
@@ -261,11 +261,11 @@ wrapTextures(
   windowNormalTexture,
   windowRoughnessTexture
 );
-//? floor textures
+// //? floor textures
 
-//? OBJECTS
+// //? OBJECTS
 
-//? plane
+// //? plane
 
 const home = new THREE.Group();
 
@@ -306,7 +306,10 @@ const rightWallRight = new THREE.Mesh(rightWallSides, wallsMaterial);
 const rightWallMiddleTop = new THREE.Mesh(rightWallMiddle, wallsMaterial);
 const rightWallMiddleBottom = new THREE.Mesh(rightWallMiddle, wallsMaterial);
 
-//? walls holder
+rightWallRight.receiveShadow = true;
+leftWall.receiveShadow = true;
+
+// //? walls holder
 
 const wallHolderMaterial = new THREE.MeshStandardMaterial({
   map: holderColorTexture,
@@ -334,21 +337,36 @@ const wallSmallHolderThird = new THREE.Mesh(
   wallHolderMaterial
 );
 
-//? homeFloor
+wallsHolder.castShadow = true;
+wallsHolder.receiveShadow = true;
+
+wallSmallHolder.castShadow = true;
+wallsHolder.receiveShadow = true;
+
+wallSmallHolderSecond.castShadow = true;
+wallSmallHolderSecond.receiveShadow = true;
+
+wallSmallHolderThird.castShadow = true;
+wallSmallHolderThird.receiveShadow = true;
+
+// //? homeFloor
 
 const homeFloor = new THREE.Mesh(
   new THREE.BoxGeometry(2, 2, 0.1, 10, 10),
 
   new THREE.MeshStandardMaterial({
-    map: floorColorTexture,
-    roughnessMap: floorRoughnessTexture,
-    normalMap: floorNormalTexture,
+    // map: floorColorTexture,
+    // roughnessMap: floorRoughnessTexture,
+    // normalMap: floorNormalTexture,
     color: "#4E6E81",
   })
 );
 
-leftWall.castShadow = true;
-rightWall.castShadow = true;
+homeFloor.castShadow = true;
+homeFloor.receiveShadow = true;
+
+leftWall.receiveShadow = true;
+rightWall.receiveShadow = true;
 
 rightWallRight.castShadow = true;
 rightWallMiddleBottom.receiveShadow = true;
@@ -413,8 +431,7 @@ circleRug.position.set(-0.2, -0.903, 0);
 circleRug.castShadow = true;
 circleRug.receiveShadow = true;
 
-//? drawer
-
+// //? drawer
 const drawerGroup = new THREE.Group();
 
 const draweLegMaterial = new THREE.MeshStandardMaterial({
@@ -435,6 +452,7 @@ const drawerLegGeometry = new THREE.BoxGeometry(0.065, 0.07, 0.065);
 const drawer = new THREE.Mesh(
   new THREE.BoxGeometry(0.325, 0.36, 1.5),
   wallHolderMaterial
+  // new THREE.MeshStandardMaterial({ color: "grey" })
 );
 
 const drawerLegF = new THREE.Mesh(drawerLegGeometry, draweLegMaterial);
@@ -464,6 +482,14 @@ const drawerBoxHandleBottom = new THREE.Mesh(
   new THREE.CapsuleGeometry(0.015, 0, 40, 80),
   wallHolderMaterial
 );
+
+//? drawer shadows
+
+drawer.castShadow = true;
+drawer.receiveShadow = true;
+
+// drawerBox.castShadow = true;
+// drawerBox.receiveShadow = true;
 
 drawer.position.set(-0.83, -0.66, 0.19);
 drawerLegF.position.set(-0.94, -0.866, 0.88);
@@ -499,7 +525,7 @@ drawerGroup.add(
   wallSmallHolderThird
 );
 
-//? COUCH
+// //? COUCH
 
 const couchGroup = new THREE.Group();
 const couchMaterial = new THREE.MeshStandardMaterial({
@@ -527,6 +553,18 @@ const couchSideR = new THREE.Mesh(
   couchMaterial
 );
 
+//? couch shadows
+
+couchBase.castShadow = true;
+couchBehind.castShadow = true;
+couchSideL.castShadow = true;
+couchSideR.castShadow = true;
+
+couchBase.receiveShadow = true;
+couchBehind.receiveShadow = true;
+couchSideL.receiveShadow = true;
+couchSideR.receiveShadow = true;
+
 couchBase.position.set(0.1, -0.7, 0);
 couchBehind.position.set(0.375, -0.67, 0.0125);
 
@@ -544,8 +582,11 @@ const tv = new THREE.Mesh(
 
 const tvScreen = new THREE.Mesh(
   new THREE.PlaneGeometry(0.8, 0.4),
-  new THREE.MeshStandardMaterial({ color: "#576CBC" })
+  new THREE.MeshStandardMaterial({ color: "#f5f5f5" })
 );
+
+tv.castShadow = true;
+tv.receiveShadow = true;
 
 tv.position.set(-0.98, 0.15, 0);
 tv.rotation.y = Math.PI / 2;
@@ -553,7 +594,7 @@ tv.rotation.y = Math.PI / 2;
 tvScreen.rotation.y = Math.PI / 2;
 tvScreen.position.set(-0.97, 0.15, 0);
 
-//? crate
+// //? crate
 
 const crate = new THREE.Mesh(
   new THREE.BoxGeometry(0.5, 0.35, 0.25),
@@ -569,27 +610,57 @@ const crate = new THREE.Mesh(
 
 crate.position.set(0.7, -0.73, -0.875);
 
-//? light
+//? in room lIGHTS
 
-const lightGroup = new THREE.Group();
+const standingLightGroup = new THREE.Group();
 
 const standingLight = new THREE.Mesh(
   new THREE.BoxGeometry(0.32, 0.32, 0.32),
   draweLegMaterial
 );
 
+standingLight.castShadow = true;
+// standingLight.receiveShadow = true;
+
 const lightPole = new THREE.Mesh(
   new THREE.BoxGeometry(0.04, 0.8, 0.04),
-  new THREE.MeshStandardMaterial({ color: "#f5f5f5" })
+  new THREE.MeshBasicMaterial({ color: "#f5f5f5" })
 );
 
 standingLight.position.set(-0.82, -0.72, -0.75);
 
 lightPole.position.set(-0.82, -0.15, -0.75);
 
-lightGroup.add(standingLight, lightPole);
+standingLightGroup.add(standingLight, lightPole);
 
-//? window
+const counterLight = new THREE.Group();
+
+const counterLightBox = new THREE.Mesh(
+  new THREE.BoxGeometry(0.15, 0.15, 0.15),
+  // new THREE.MeshStandardMaterial({ color: "red" })
+  draweLegMaterial
+);
+
+counterLightBox.castShadow = true;
+counterLightBox.receiveShadow = true;
+const counterLightBoxPole = new THREE.Mesh(
+  new THREE.BoxGeometry(0.025, 0.1, 0.025),
+  new THREE.MeshStandardMaterial({ color: "#000000" })
+);
+
+counterLightBoxPole.castShadow = true;
+const counterLightBoxCone = new THREE.Mesh(
+  new THREE.ConeGeometry(0.09, 0.09, 32),
+  new THREE.MeshBasicMaterial({ color: "#f5f5f5" })
+);
+
+counterLightBoxCone.position.set(0, 0.21, 0);
+counterLightBoxPole.position.set(0, 0.11, 0);
+
+counterLight.position.set(-0.825, -0.4, 0.775);
+counterLight.add(counterLightBox, counterLightBoxPole, counterLightBoxCone);
+
+// //? window
 
 const homeWindow = new THREE.Mesh(
   new THREE.PlaneGeometry(0.95, 0.8),
@@ -604,22 +675,26 @@ const homeWindow = new THREE.Mesh(
   })
 );
 
+homeWindow.receiveShadow = true;
+
 homeWindow.position.set(-0.065, -0.002, -1.08);
 
 //? desk appliances
 
-const console = new THREE.Group();
+const xboxConsole = new THREE.Group();
 const xbox = new THREE.Mesh(
   new THREE.BoxGeometry(0.14, 0.24, 0.17),
   new THREE.MeshStandardMaterial({
-    // map: xboxColorTexture,
-    // normalMap: xboxNormalTexture,
-    // aoMap: xboxAo,
-    // metalnessMap: xboxMetalness,
-    // roughnessMap: xboxRoughnessTexture,
-    color: "#f5f5f5",
+    map: xboxColorTexture,
+    normalMap: xboxNormalTexture,
+    aoMap: xboxAo,
+    metalnessMap: xboxMetalness,
+    roughnessMap: xboxRoughnessTexture,
+    // color: "#f5f5f5",
   })
 );
+
+xbox.castShadow = true;
 
 const xboxLogo = new THREE.Mesh(
   new THREE.CapsuleGeometry(0.007, 0, 40, 80),
@@ -638,7 +713,7 @@ xboxLogo.position.set(-0.745, -0.27, -0.28);
 xboxCD.rotateOnAxis.y = -0.03;
 xboxCD.position.set(-0.745, -0.4, -0.28);
 
-console.add(xbox, xboxLogo, xboxCD);
+xboxConsole.add(xbox, xboxLogo, xboxCD);
 //? add to scene
 home.add(
   leftWall,
@@ -655,9 +730,10 @@ home.add(
   wallSmallHolder,
   wallSmallHolderSecond,
   tv,
-  lightGroup,
+  standingLightGroup,
   homeWindow,
-  console
+  xboxConsole,
+  counterLight
 );
 
 scene.add(home);
@@ -675,37 +751,60 @@ camera.position.set(1, 1, 3);
 scene.add(camera);
 
 //? LIGHTS
-//? helper
 
-const pointLight = new THREE.PointLight(0xffffff, 1.5, 100);
+const boxPointLight = new THREE.PointLight("#F5F5F5", 2, 3);
+const pointlightHelper = new THREE.PointLightHelper(boxPointLight);
 
-pointLight.position.set(1.25, 2, 1.25);
-pointLight.shadow.mapSize.width = 1024;
-pointLight.shadow.mapSize.width = 1024;
-pointLight.shadow.camera.near = 1;
-pointLight.shadow.camera.far = 3.5;
-pointLight.target = homeFloor;
+const standingPointLight = new THREE.PointLight("#F5F5F5", 2, 4);
+const standingpointlightHelper = new THREE.PointLightHelper(standingPointLight);
+const standingPointCamera = new THREE.Camera();
+// boxPointLight.position.scale = 0.1;
+// boxPointLight.scale.x = 0.5;
+boxPointLight.scale.set(0.085, 0.085, 0.085);
+boxPointLight.position.set(-0.55, -0.21, 0.985);
 
-home.add(pointLight);
-pointLight.castShadow = true;
+standingPointLight.scale.set(0.02, 0.4, 0.02);
+standingPointLight.position.set(-0.95, -0.1, -0.48);
 
+standingPointLight.shadow.mapSize.width = 256 * 2;
+standingPointLight.shadow.mapSize.height = 256 * 2;
+
+// boxPointLight.castShadow = true;
+standingPointLight.castShadow = true;
+
+const scenePointLight = new THREE.PointLight("#F5F5F5", 5.5, 4);
+const scenePointLightHelper = new THREE.PointLightHelper(scenePointLight);
+scenePointLight.position.set(0, 0.821, 0);
+// gui.add(scenePointLight, "intensity").min(0).max(10).step(0.001);
+// gui.add(scenePointLight.position, "x").min(-5).max(5).step(0.001);
+// gui.add(scenePointLight.position, "y").min(-5).max(5).step(0.001);
+// gui.add(scenePointLight.position, "z").min(-5).max(5).step(0.001);
+
+gui.add(camera.position, "x").min(-4).max(5).step(0.001);
+gui.add(camera.position, "y").min(-4).max(5).step(0.001);
+gui.add(camera.position, "z").min(-4).max(5).step(0.001);
+home.add(
+  standingPointLight,
+  scenePointLight,
+  boxPointLight
+  // scenePointLightHelper
+);
 //? ambientlight
 
-const ambientLight = new THREE.AmbientLight("#b9d5ff", 0.6);
-gui.add(ambientLight, "intensity").min(0).max(1).step(0.001);
-scene.add(ambientLight);
+// const ambientLight = new THREE.AmbientLight("#b9d5ff", 0.6);
+// // gui.add(ambientLight, "intensity").min(0).max(1).step(0.001);
+
+// home.add(ambientLight);
+
+// const moonLight = new THREE.DirectionalLight("#b9d5ff", 0.06);
+// moonLight.position.set(4, 5, -2);
+// gui.add(moonLight, "intensity").min(0).max(1).step(0.001);
+// gui.add(moonLight.position, "x").min(-5).max(5).step(0.001);
+// gui.add(moonLight.position, "y").min(-5).max(5).step(0.001);
+// gui.add(moonLight.position, "z").min(-5).max(5).step(0.001);
+// scene.add(moonLight);
 
 //? monlight
-
-const moonLight = new THREE.DirectionalLight("#b9d5ff", 0.12);
-moonLight.position.set(4, 5, -2);
-gui.add(moonLight, "intensity").min(0).max(1).step(0.001);
-gui.add(moonLight.position, "x").min(-5).max(5).step(0.001);
-gui.add(moonLight.position, "y").min(-5).max(5).step(0.001);
-gui.add(moonLight.position, "z").min(-5).max(5).step(0.001);
-scene.add(moonLight);
-
-const pointLightHelper = new THREE.CameraHelper(pointLight.shadow.camera);
 
 //? orbit controls
 const controls = new OrbitControls(camera, canvas);
@@ -719,7 +818,7 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-renderer.setClearColor("#f5f5f5");
+renderer.setClearColor("#A5D7E8");
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFShadowMap;
 
@@ -746,13 +845,11 @@ const clock = new THREE.Clock();
 const tick = () => {
   //! get elapsed time
   const elapsedTime = clock.getElapsedTime();
-
   //! update controls
   controls.update();
 
   //! start renderer
   renderer.render(scene, camera);
-
   window.requestAnimationFrame(tick);
 };
 
