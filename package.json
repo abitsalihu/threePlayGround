@@ -1,19 +1,18 @@
 {
   "name": "threeplayground",
   "version": "1.0.0",
-  "description": "playing around with threejS",
+  "description": "three play",
   "main": "vite.config.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
+    "buid": "vite build",
     "deploy": "vercel --prod"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/abitsalihu/threePlayGround.git"
   },
-  "author": "abitsalihu",
+  "author": "abi",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/abitsalihu/threePlayGround/issues"
@@ -22,7 +21,7 @@
   "dependencies": {
     "gsap": "^3.11.5",
     "lil-gui": "^0.18.1",
-    "three": "^0.150.1",
+    "three": "^0.151.2",
     "vercel": "^28.18.3",
     "vite": "^4.2.1"
   }
